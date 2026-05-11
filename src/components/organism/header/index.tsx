@@ -1,35 +1,40 @@
-import { Bell, SunMoon, User, Settings, LogOut } from "lucide-react";
+import { Bell, Sun, Moon, User, Settings, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { UserMenuOption } from "@/components/molecules/userMenu";
 import SearchBar from "@/components/molecules/searchBar";
 import UserMenu from "@/components/molecules/userMenu";
 import { BtnIcon } from "@/components/atoms/btn";
+import { useThemeStore } from "@/theme";
 
 type HeaderProps = {
   userName?: string;
   userMenuOptions?: UserMenuOption[];
   onNotificationClick?: () => void;
-  onThemeClick?: () => void;
+  onLogout?: () => void;
   searchPlaceholder?: string;
   onSearch?: (value: string) => void;
   className?: string;
 };
 
-const DEFAULT_USER_OPTIONS: UserMenuOption[] = [
-  { icon: User, label: "Mi perfil" },
-  { icon: Settings, label: "Configuración" },
-  { icon: LogOut, label: "Cerrar sesión", variant: "danger" },
-];
-
 function Header({
   userName = "Usuario",
-  userMenuOptions = DEFAULT_USER_OPTIONS,
+  userMenuOptions,
   onNotificationClick,
-  onThemeClick,
+  onLogout,
   searchPlaceholder,
   onSearch,
   className,
 }: HeaderProps) {
+  const toggleTheme = useThemeStore((s) => s.toggleTheme);
+  const theme = useThemeStore((s) => s.theme);
+
+  const resolvedOptions: UserMenuOption[] =
+    userMenuOptions ?? [
+      { icon: User, label: "Mi perfil" },
+      { icon: Settings, label: "Configuración" },
+      { icon: LogOut, label: "Cerrar sesión", variant: "danger", onClick: onLogout },
+    ];
+
   return (
     <header
       className={cn(
@@ -56,13 +61,13 @@ function Header({
           variant="ghost"
           size="md"
           rounded="lg"
-          onClick={onThemeClick}
+          onClick={toggleTheme}
           aria-label="Cambiar tema"
           className="!border-0 !bg-transparent text-[var(--text-muted)] hover:!bg-transparent hover:text-[var(--accent)]"
         >
-          <SunMoon className="size-5" />
+          {theme === 'dark' ? <Moon className="size-5" /> : <Sun className="size-5" />}
         </BtnIcon>
-        <UserMenu userName={userName} options={userMenuOptions} />
+        <UserMenu userName={userName} options={resolvedOptions} />
       </div>
     </header>
   );

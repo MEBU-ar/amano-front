@@ -1,4 +1,5 @@
 export type RecentClient = {
+  id: string;
   nombre: string;
   gastado: number;
   ultimaCompra: string;

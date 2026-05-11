@@ -1,5 +1,4 @@
 import type { LucideIcon } from "lucide-react";
-import { Link } from "react-router-dom";
 import Item from "@/components/atoms/item";
 
 export type SectionItem = {

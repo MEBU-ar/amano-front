@@ -12,7 +12,7 @@ import ProductsPage from "./pages/products";
 import SalesPage from "./pages/sales";
 import StockPage from "./pages/stock";
 import HistoryPage from "./pages/history";
-import "./App.css";
+import ClientProfilePage from "./pages/clientProfile";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/clientes" element={<ClientsPage />} />
+        <Route path="/clientes/:id" element={<ClientProfilePage />} />
         <Route path="/rendimiento" element={<PerformancePage />} />
         <Route path="/boletas" element={<ReceiptsPage />} />
         <Route path="/notificaciones" element={<NotificationsPage />} />
