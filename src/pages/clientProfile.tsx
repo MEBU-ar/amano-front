@@ -1,33 +1,7 @@
-import {
-  Home,
-  TrendingUp,
-  FileText,
-  Users,
-  Bell,
-  Ban,
-  Package,
-  ShoppingCart,
-  PackageCheck,
-  History,
-} from "lucide-react";
 import ClientProfileTemplate from "@/components/template/clientProfile";
+import { MAIN_MENU, MI_NEGOCIO } from "@/lib/menus";
 import { MOCK_CLIENT_PROFILE, MOCK_BOLETAS } from "@/lib/mocks/clientProfile";
-
-const MAIN_MENU = [
-  { label: "Dashboard", icon: Home },
-  { label: "Rendimiento", icon: TrendingUp },
-  { label: "Boletas", icon: FileText },
-  { label: "Clientes", icon: Users, active: true },
-  { label: "Notificaciones", icon: Bell },
-  { label: "Lista negra", icon: Ban },
-];
-
-const MI_NEGOCIO = [
-  { label: "Productos", icon: Package },
-  { label: "Ventas", icon: ShoppingCart },
-  { label: "Stock", icon: PackageCheck },
-  { label: "Historial", icon: History },
-];
+import { logout } from "@/lib/auth";
 
 const SUMMARY_ITEMS = [
   { label: "Total compras", value: MOCK_CLIENT_PROFILE.totalCompras },
@@ -39,8 +13,12 @@ const SUMMARY_ITEMS = [
 export default function ClientProfilePage() {
   return (
     <ClientProfileTemplate
-      menuItems={MAIN_MENU}
+      menuItems={MAIN_MENU.map((item) => ({
+        ...item,
+        active: item.to === "/clientes",
+      }))}
       miNegocioItems={MI_NEGOCIO}
+      onLogout={logout}
       client={MOCK_CLIENT_PROFILE}
       summaryItems={SUMMARY_ITEMS}
       boletas={MOCK_BOLETAS}
