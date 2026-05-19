@@ -33,21 +33,21 @@ function LoginForm({ onSubmit, error, isLoading, className }: LoginFormProps) {
       />
 
       {error && (
-        <p className="text-sm text-red-600" role="alert">
-          {error}
-        </p>
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          <p className="text-sm">{error}</p>
+        </div>
       )}
 
       <div className="flex justify-between text-sm">
         <button
           type="button"
-          className="cursor-pointer border-none bg-transparent p-0 font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)]"
+          className="cursor-pointer border-none bg-transparent p-0 font-semibold text-[#a8001b] transition-colors hover:text-[#8c0017]"
         >
           Crear cuenta
         </button>
         <button
           type="button"
-          className="cursor-pointer border-none bg-transparent p-0 font-semibold text-[var(--text-muted)] transition-colors hover:text-[var(--accent)]"
+          className="cursor-pointer border-none bg-transparent p-0 font-semibold text-gray-600 transition-colors hover:text-[#a8001b]"
         >
           ¿Olvidaste tu contraseña?
         </button>

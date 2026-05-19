@@ -22,7 +22,7 @@ function AppLogo({
   return (
     <div
       className={cn(
-        "flex items-center justify-center rounded-xl bg-[var(--accent)] shadow-[var(--shadow)]",
+        "flex items-center justify-center rounded-xl bg-[#a8001b] shadow-[0_4px_12px_rgba(168,0,27,0.3)]",
         centered && "mx-auto",
         sizeStyles[size].box,
         className

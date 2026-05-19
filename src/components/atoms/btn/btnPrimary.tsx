@@ -8,7 +8,6 @@ const sizeStyles = {
 
 type BtnPrimaryProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
-  fullWidth?: boolean;
   size?: keyof typeof sizeStyles;
 };
 
@@ -16,7 +15,6 @@ function BtnPrimary({
   children,
   className,
   type = "button",
-  fullWidth = true,
   size = "md",
   disabled,
   ...props
@@ -26,9 +24,7 @@ function BtnPrimary({
       type={type}
       disabled={disabled}
       className={cn(
-        "flex justify-center rounded-md font-semibold text-white shadow-sm transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50",
-        "bg-[var(--accent)] hover:bg-[var(--accent-hover)] hover:scale-[1.02] hover:brightness-110 hover:shadow-[var(--accent-glow)]",
-        fullWidth && "w-full",
+        "w-full bg-[#a8001b] hover:bg-[#8c0017] text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#a8001b] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg",
         sizeStyles[size],
         className
       )}

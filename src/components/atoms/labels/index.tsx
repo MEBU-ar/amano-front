@@ -14,7 +14,7 @@ const LabelField = forwardRef<HTMLInputElement, LabelFieldProps>(
       <label
         htmlFor={id}
         className={cn(
-          "block text-sm font-medium leading-6 text-[var(--text)]",
+          "block text-sm font-medium text-gray-700 mb-2",
           labelClassName
         )}
       >
@@ -25,9 +25,8 @@ const LabelField = forwardRef<HTMLInputElement, LabelFieldProps>(
           ref={ref}
           id={id}
           className={cn(
-            "block w-full rounded-lg border bg-[var(--card-bg)] px-3 py-2 text-[var(--text)] shadow-sm outline-none transition-colors placeholder:text-[var(--text-muted)]/70",
-            "border-[var(--border)] focus:outline-2 focus:outline-offset-2 focus:outline-[var(--accent)] focus:border-[var(--accent)]",
-            error && "border-red-500 focus:outline-red-500",
+            "w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#a8001b] focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500",
+            error && "border-red-500 focus:ring-red-500",
             className
           )}
           {...props}
