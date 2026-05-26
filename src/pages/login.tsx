@@ -29,6 +29,10 @@ export default function LoginPage() {
     }, 500);
   }
 
+  function handleRegisterClick() {
+    navigate("/register", { replace: true });
+  }
+
   return (
     <div
       className={cn(

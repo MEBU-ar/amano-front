@@ -5,6 +5,7 @@ export type SectionItem = {
   icon: LucideIcon;
   label: string;
   active?: boolean;
+  to?: string;
 };
 
 type SectionProps = {
@@ -26,6 +27,7 @@ function Section({ title, items, onItemClick }: SectionProps) {
             icon={item.icon}
             label={item.label}
             active={item.active}
+            to={item.to}
             onClick={() => onItemClick?.(item)}
           />
         ))}

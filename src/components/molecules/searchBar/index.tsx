@@ -26,7 +26,7 @@ function SearchBar({
     <div
       ref={containerRef}
       className={cn(
-        "flex items-center overflow-hidden rounded-full bg-[#f3f3f4] dark:bg-[var(--border)] transition-[width] duration-500 ease-in-out",
+        "flex items-center overflow-hidden rounded-full bg-[var(--input-bg)] transition-[width] duration-500 ease-in-out",
         expanded ? "w-72 sm:w-80 md:w-96" : "w-10",
         className
       )}

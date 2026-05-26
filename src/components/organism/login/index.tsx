@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 type LoginProps = {
   className?: string;
+  onRegisterClick?: () => void;
 };
 
 function Login({ className }: LoginProps) {
